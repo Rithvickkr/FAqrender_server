@@ -29,10 +29,6 @@ def get_cache_key(text: str) -> str:
 async def root():
     return {"message": "Embedding API is running! Use /embed to generate embeddings."}
   
-
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))  # ✅ Get port from Render
-    uvicorn.run(app, host="0.0.0.0", port=port)
 @app.post("/embed")
 async def embed(request: EmbedRequest):
     text = request.text.strip()
