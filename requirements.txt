@@ -4,5 +4,3 @@ sentence-transformers
 torch
 redis
 pydantic
-redis-py
-python-dotenv
