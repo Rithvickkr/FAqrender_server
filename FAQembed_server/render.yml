@@ -2,7 +2,7 @@ services:
   - type: web
     name: fastapi-embed-server
     env: python
-    region: oregon
+    region: Singapore
     plan: free  # Change to "starter" if Redis needed
     envVars:
       - key: REDIS_HOST
