@@ -14,7 +14,9 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 # Redis with error handling
 try:
     REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-    redis_client = redis.Redis(host=REDIS_HOST, port=6379, db=0, decode_responses=True)
+    REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", "your_password_here")
+    # Redis connection with SSL enabled
+    redis_client = redis.Redis(host=REDIS_HOST, port=6379,password=REDIS_PASSWORD, db=0, decode_responses=True,ssl=True)
 except redis.ConnectionError as e:
     print(f"❌ Redis connection failed: {e}")
     redis_client = None  # Fallback to no cache
